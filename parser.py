@@ -7,7 +7,6 @@ with open('log.txt') as f:
         coise = line.split('?')[1].split('&rnd')[0][4:]
         #cryptoid = coise[:16]
         reqStr = coise[16:]
-        print(reqStr)
         reqStr = reqStr.replace('-', '+').replace('_', '/')
 
 
@@ -16,9 +15,8 @@ with open('log.txt') as f:
             #print('Incorrectly padded message {}'.format(len(reqStr)))
             reqStr = reqStr + '='*(((len(reqStr)%16+1) * 16) - len(reqStr))
 
-        print(str(len(reqStr)))
         decoded = base64.b64decode(reqStr)
-        middle = AES.new('s5coA5560Z9yQ48z', AES.MODE_CBC, 'jXT#/vz]3]5X7Jl\\')
+        middle = AES.new('9rG0150U71T72206', AES.MODE_CBC, 'jXT#/vz]3]5X7Jl\\')
         data = middle.decrypt(decoded)
 
         print(data)

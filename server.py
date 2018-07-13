@@ -7,15 +7,16 @@ from keys import configFile, englishLanguage
 
 app = Bottle()
 
-''' cursor.execute('CREATE TABLE players(id PRIMARY_KEY INT, username TEXT,
-password TEXT, email TEXT, sex INT, race INT, class INT, face TEXT, unk5 INT)')
-'''
-
 
 # /sfgame_cfg.php?rnd=0.4670932721346617&client=windows%202.81.31&version=885116b401e56d21a6e99c7a2838cbf7
 @app.route('/sfgame_cfg.php')
 def getConfigFile():
     return configFile
+
+
+@app.route('/marketing/map.php')
+def marketingBullshit():
+    return ''
 
 
 @app.route('/lang/sfgame_en.js')
